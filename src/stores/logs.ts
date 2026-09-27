@@ -32,5 +32,12 @@ export const useLogsStore = defineStore('logs', () => {
     persist()
   }
 
-  return { logs, addLog, updateLog, removeLog }
+  function toggleResolved(id: string): void {
+    const target = logs.value.find((l) => l.id === id)
+    if (!target) return
+    target.resolvedAt = target.resolvedAt ? undefined : new Date().toISOString()
+    persist()
+  }
+
+  return { logs, addLog, updateLog, removeLog, toggleResolved }
 })

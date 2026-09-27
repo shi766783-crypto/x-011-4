@@ -54,6 +54,8 @@ export interface StudyLog {
   problem: string
   solution: string
   notes: string
+  /** 问题被标记为已解决的时间；为空表示待解决 */
+  resolvedAt?: string
   createdAt: string
 }
 
